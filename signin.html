@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MealConnect - Sign Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Root Variables */
+        :root {
+            --primary: #FFD100;
+            --primary-light: #FFDF4D;
+            --primary-dark: #E5BC00;
+            --black: #121212;
+            --gray-dark: #282828;
+            --gray-light: #3A3A3A;
+            --white: #F5F5F5;
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--primary-light);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Container Styles */
+        .container {
+            display: flex;
+            width: 90%;
+            max-width: 1000px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-radius: 16px;
+            overflow: hidden;
+            height: 650px;
+        }
+
+        /* Left Section Styles */
+        .left-section {
+            flex: 1;
+            background-color: var(--gray-dark);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-image {
+            margin-bottom: 20px;
+            width: 100px;
+        }
+
+        .welcome-text {
+            z-index: 2;
+        }
+
+        .welcome-text h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .welcome-text p {
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+
+        /* Blob Styles */
+        .blob {
+            position: absolute;
+            background-color: var(--primary);
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .blob-1 {
+            width: 350px;
+            height: 350px;
+            bottom: -150px;
+            left: -100px;
+        }
+
+        .blob-2 {
+            width: 200px;
+            height: 200px;
+            top: -100px;
+            right: -50px;
+        }
+
+        /* Right Section Styles */
+        .right-section {
+            width: 450px;
+            background-color: var(--gray-light);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .signup-form {
+            z-index: 2;
+        }
+
+        .signup-form h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            position: relative;
+            color: var(--primary);
+        }
+
+        .signup-form h2:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 50px;
+            height: 4px;
+            background-color: var(--primary);
+        }
+
+        /* Form Group Styles */
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: var(--white);
+            opacity: 0.8;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            background-color: var(--gray-dark);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--white);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(255, 209, 0, 0.2);
+        }
+
+        .form-group select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23FFD100' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+        }
+
+        /* Form Row Styles */
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        /* Submit Button Styles */
+        .submit-btn {
+            background-color: var(--primary);
+            color: var(--black);
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        /* Login Link Styles */
+        .login-link {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .login-link a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Plates and Food Type Styles */
+        .plates-group {
+            display: none;
+        }
+
+        .plates-food-container {
+            display: flex;
+            align-items: flex-end;
+            gap: 20px;
+        }
+
+        .plates-food-container .form-group {
+            flex: 1;
+            margin-bottom: 0;
+        }
+
+        .plates-food-container .form-group:first-child {
+            max-width: 150px;
+        }
+
+        /* Custom Radio Button Styles */
+        .custom-radio {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .custom-radio-input {
+            position: relative;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .custom-radio-input input[type="radio"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            outline: none;
+            margin-right: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .custom-radio-input input[type="radio"]:checked {
+            background-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(255, 209, 0, 0.2);
+        }
+
+        .custom-radio-input input[type="radio"]:checked::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background-color: var(--black);
+            border-radius: 50%;
+        }
+
+        .custom-radio-input label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .left-section {
+                padding: 30px;
+            }
+
+            .right-section {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .plates-food-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <div class="logo">
+                <img src="images/logo.png" alt="MealConnect Logo" class="logo-image">   
+            </div>
+            <div class="welcome-text">
+                <h1>SIGN UP</h1>
+                <p>Join MealConnect and be part of a community that makes a difference! Whether you're donating surplus food or requesting meals, our platform connects you with those in need. Sign up today to contribute, reduce food waste, and help build a hunger-free world.</p>
+            </div>
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+        </div>
+        <div class="right-section">
+            <div class="signup-form">
+                <form action="submit_signup.php" method="post">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required
+                            title="Phone number must be exactly 10 digits (0-9)">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <textarea id="address" name="address" rows="2" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="role">I am a</label>
+                        <select id="role" name="role" required onchange="togglePlatesInput()">
+                            <option value="donor">Donor</option>
+                            <option value="recipient">Recipient</option>
+                        </select>
+                    </div>
+                    <div class="form-group plates-group" id="plates-group">
+                        <div class="plates-food-container">
+                            <div class="form-group">
+                                <label for="plates">Number of Plates</label>
+                                <input type="number" id="plates" name="plates" min="1">
+                            </div>
+                            <div class="form-group">
+                                <label>Food Type</label>
+                                <div class="custom-radio">
+                                    <div class="custom-radio-input">
+                                        <input type="radio" id="veg" name="food_type" value="veg">
+                                        <label for="veg">Vegetarian</label>
+                                    </div>
+                                    <div class="custom-radio-input">
+                                        <input type="radio" id="nonveg" name="food_type" value="nonveg">
+                                        <label for="nonveg">Non-Vegetarian</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn">Create Account</button>
+                </form>
+                <div class="login-link">
+                    <p>Already have an account? <a href="registration.html">Sign In</a></p>
+                </div>             
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function togglePlatesInput() {
+            const roleSelect = document.getElementById('role');
+            const platesGroup = document.getElementById('plates-group');
+            if (roleSelect.value === 'recipient') {
+                platesGroup.style.display = 'block';
+                platesInput.setAttribute('required', '');
+                vegRadio.setAttribute('required', '');
+                nonvegRadio.setAttribute('required', '');
+            } else {
+                platesGroup.style.display = 'none';
+                platesInput.removeAttribute('required');
+                vegRadio.removeAttribute('required');
+                nonvegRadio.removeAttribute('required');
+            }
+        }
+        document.addEventListener('DOMContentLoaded', togglePlatesInput);
+    </script>
+</body>
+</html>

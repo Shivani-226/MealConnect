@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MealConnect - Bridging Food Donors & Those in Need</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="meal.css">
+    <style>
+        .testimonials-container {
+            position: relative;
+            padding: 2rem;
+            background-color: rgba(0, 0, 0, 0);
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            color: #fff;
+        }
+
+        .testimonials-grid {
+            display: flex;
+            overflow: hidden;
+            gap: 1rem;
+            scroll-behavior: smooth;
+        }
+
+        .testimonial-card {
+            background-color: #ffffff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            min-width: 300px;
+            flex: 0 0 auto;
+            transition: transform 0.3s;
+            color: #fff;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .testimonial-card .quote-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card .testimonial-text {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: #000000;
+        }
+
+        .testimonial-card .testimonial-author {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .testimonial-card .testimonial-email {
+            font-size: 0.9rem;
+            color: #bbb;
+        }
+
+        .testimonial-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--primary);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .testimonial-arrow:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .testimonial-arrow.left {
+            left: -20px;
+        }
+
+        .testimonial-arrow.right {
+            right: -20px;
+        }
+
+        .testimonial-arrow i {
+            font-size: 1.5rem;
+            color: #000;
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-arrow {
+                width: 30px;
+                height: 30px;
+            }
+
+            .testimonial-arrow i {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">
+                <img src="images/logo.png" alt="MealConnect Logo" class="logo-image">               
+                MealConnect
+            </a>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#partners">Partners</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="registration.html" class="signup">Sign In</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Connecting <span>Food Donors</span> with Those in Need</h1>
+                <p>MealConnect bridges the gap between food surplus and scarcity, creating a more sustainable and caring community through innovative food donation solutions.</p>
+                <a href="signin.html" class="btn">Get Started Today</a>
+            </div>
+            <div class="hero-image-container">
+                <div class="hero-image-bg"></div>
+                <div class="hero-image-square"></div>
+                <div class="hero-image-square1"></div>
+                <img src="images/fooddonate.avif" alt="Food Donation" class="hero-image">
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="features-container">
+            <h2 class="section-title">Our Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="feature-icon fas fa-hand-holding-heart"></i>
+                    <h3>Easy Donations</h3>
+                    <p>Simple and efficient process for food donations, making it easier than ever to help those in need and reduce food waste in your community.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="feature-icon fas fa-calendar-alt"></i>
+                    <h3>Flexible Scheduling</h3>
+                    <p>Donate at your convenience by selecting a preferred time for food pickup or drop-off.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="feature-icon fas fa-shield-alt"></i>
+                    <h3>Secure & Reliable</h3>
+                    <p>Our network of verified recipients and secure handling protocols ensure your donations reach the right people safely and with complete transparency.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="partners" class="advertisements">
+        <div class="advertisements-container">
+            <h2 class="section-title">Our Partners</h2>
+            <div class="carousel-container">
+                <button class="carousel-arrow left" onclick="scrollCarousel(-1)">&#10094;</button>
+                <div class="carousel">
+                    <!-- First set -->
+                    <div class="carousel-item">
+                        <img src="images/Restaurant.jpg" alt="Restaurant 1">
+                        <div class="carousel-content">
+                            <h3>The Golden Spoon</h3>
+                            <p>Luxury dining experience with a commitment to reducing food waste and supporting local communities.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/restaurant1.jpeg" alt="Restaurant 2">
+                        <div class="carousel-content">
+                            <h3>Fresh Harvest Hotel</h3>
+                            <p>Five-star accommodation with sustainable practices and regular food donation programs.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/restaurant2.jpeg" alt="Restaurant 3">
+                        <div class="carousel-content">
+                            <h3>Green Plate Café</h3>
+                            <p>Eco-friendly café serving organic meals and contributing to local food banks.</p>
+                        </div>
+                    </div>
+                    <!-- Duplicate set for smooth scrolling -->
+                    <div class="carousel-item">
+                        <img src="images/Restaurant3.jpeg" alt="Restaurant 1">
+                        <div class="carousel-content">
+                            <h3>The Golden Spoon</h3>
+                            <p>Luxury dining experience with a commitment to reducing food waste and supporting local communities.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/Restaurant4.jpg" alt="Restaurant 2">
+                        <div class="carousel-content">
+                            <h3>Fresh Harvest Hotel</h3>
+                            <p>Five-star accommodation with sustainable practices and regular food donation programs.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/Restaurant5.jpeg" alt="Restaurant 3">
+                        <div class="carousel-content">
+                            <h3>Green Plate Café</h3>
+                            <p>Eco-friendly café serving organic meals and contributing to local food banks.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-arrow right" onclick="scrollCarousel(1)">&#10095;</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="testimonials-container">
+            <h2 class="section-title">What People Are Saying</h2>
+            <button class="testimonial-arrow left" onclick="scrollTestimonials(-1)"><i class="fas fa-chevron-left"></i></button>
+            <div class="testimonials-grid" id="testimonials-grid">
+                <!-- Feedback from database will be appended here -->
+                <div class="testimonial-loading">Loading testimonials...</div>
+            </div>
+            <button class="testimonial-arrow right" onclick="scrollTestimonials(1)"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <h2>Get in Touch</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="contact-icon fas fa-phone-alt"></i>
+                    <h3>Phone</h3>
+                    <p>+1 (123) 456-7890</p>
+                </div>
+                <div class="contact-item">
+                    <i class="contact-icon fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>mealconnect22@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <a href="feedback.html" style="text-decoration: none;">
+                        <i class="contact-icon fas fa-comments"></i>
+                    </a>
+                    <h3>Feedback</h3>
+                    <p>We value your feedback. <br>Please let us know your <br>thoughts and suggestions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 MealConnect. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Partners carousel functionality
+        let currentIndex = 0;
+
+        function scrollCarousel(direction) {
+            const carousel = document.querySelector('.carousel');
+            const items = document.querySelectorAll('.carousel-item');
+            const itemWidth = items[0].offsetWidth + 32; // 32px is the gap
+            const totalItems = items.length;
+
+            currentIndex += direction;
+
+            if (currentIndex < 0) {
+                currentIndex = totalItems / 2 - 1;
+                carousel.style.transition = 'none';
+                carousel.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+                setTimeout(() => {
+                    carousel.style.transition = 'transform 0.5s ease';
+                    currentIndex -= 1;
+                    carousel.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+                }, 50);
+            } else if (currentIndex >= totalItems / 2) {
+                currentIndex = 0;
+                carousel.style.transition = 'none';
+                carousel.style.transform = `translateX(0)`;
+                setTimeout(() => {
+                    carousel.style.transition = 'transform 0.5s ease';
+                    currentIndex += 1;
+                    carousel.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+                }, 50);
+            } else {
+                carousel.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+            }
+        }
+
+        // Auto-scroll the partners carousel
+        setInterval(() => {
+            scrollCarousel(1);
+        }, 5000);
+
+        // Testimonials functionality
+        let testimonialIndex = 0;
+        
+        // Fetch and display testimonials
+        document.addEventListener('DOMContentLoaded', function() {
+            fetchTestimonials();
+        });
+
+        function fetchTestimonials() {
+            fetch('get_feedback.php')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const testimonialsGrid = document.getElementById('testimonials-grid');
+                    // Clear loading message
+                    testimonialsGrid.innerHTML = '';
+                    
+                    if (data.length === 0) {
+                        testimonialsGrid.innerHTML = '<div class="no-testimonials">No testimonials available yet. Be the first to leave feedback!</div>';
+                        return;
+                    }
+                    
+                    data.forEach(feedback => {
+                        const testimonialCard = document.createElement('div');
+                        testimonialCard.classList.add('testimonial-card');
+                        
+                        // Sanitize input to prevent XSS
+                        const sanitizedMessage = feedback.message.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+                        const sanitizedName = feedback.name.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+                        const sanitizedEmail = feedback.email.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+                        
+                        testimonialCard.innerHTML = `
+                            <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                            <p class="testimonial-text">${sanitizedMessage}</p>
+                            <div class="testimonial-author">
+                                <h3>${sanitizedName}</h3>
+                                <span class="testimonial-email">${sanitizedEmail}</span>
+                            </div>
+                        `;
+                        testimonialsGrid.appendChild(testimonialCard);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching testimonials:', error);
+                    const testimonialsGrid = document.getElementById('testimonials-grid');
+                    testimonialsGrid.innerHTML = '<div class="error-message">Unable to load testimonials. Please try again later.</div>';
+                });
+        }
+
+        function scrollTestimonials(direction) {
+            const testimonialsGrid = document.getElementById('testimonials-grid');
+            const itemWidth = testimonialsGrid.children[0].offsetWidth + 16; // 16px gap
+            testimonialsGrid.scrollBy({
+                left: direction * itemWidth,
+                behavior: 'smooth'
+            });
+        }
+
+        // Auto-scroll the testimonials
+        setInterval(() => {
+            scrollTestimonials(1);
+        }, 6000);
+    </script>
+</body>
+</html>
